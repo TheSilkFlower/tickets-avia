@@ -19,16 +19,16 @@ interface Ticket {
     price: number;
 }
 
-type Tickets = Ticket[] 
+type Tickets = Ticket[]
 const ticketsCollection: Tickets = []
 
 for(let ticket of info['tickets']) {
     ticketsCollection.push(ticket)
 }
+
 console.log(ticketsCollection)
 
-
-export const Ticket: React.FC<Ticket> = () => {
+export const Ticket: React.FC = () => {
     const getImage = useCallback((carrier: string) => {
         let src =''
         switch(carrier) {
