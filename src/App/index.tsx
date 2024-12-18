@@ -1,9 +1,13 @@
 import React from "react";
+import styles from './index.module.scss';
+import { OptionBlock } from "../components/OptionBlock";
+import { Ticket } from "../components/Ticket";
 
-export const App = () => {
+export const App: React.FC = () => {
     return (
-        <div>
-            Hello!
-        </div>
+        <main>
+            <OptionBlock />
+            <Ticket />
+        </main>
     )
 }
