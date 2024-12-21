@@ -1,4 +1,6 @@
 import React, { ReactNode } from "react";
+import Paper from '@mui/material/Paper';
+import styles from './index.module.scss'
 
 interface InfoFlightProps {
     children: ReactNode
@@ -6,8 +8,11 @@ interface InfoFlightProps {
 
 export const InfoFlight: React.FC<InfoFlightProps> = ({ children }) => {
     return (
-        <div>
-            {children}
-        </div>
+        
+           <Paper>
+                <div className={ styles.wrapperInfoFlight }>
+                    {children}
+                </div>
+            </Paper>
     )
 }
