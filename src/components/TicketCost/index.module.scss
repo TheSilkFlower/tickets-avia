@@ -1,0 +1,20 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonBuy {
+    background-color: coral;
+    color: antiquewhite;
+    width: 200px;
+    height: 70px;
+    border: none;
+    border-radius: 5px;
+    transition: .2s;
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(242, 90, 34);
+    }
+}
