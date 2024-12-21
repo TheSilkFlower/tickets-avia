@@ -2,6 +2,7 @@
 
 body {
     font: 16px/1.4 'Roboto', sans-serif;
+    background-image: linear-gradient(180deg, #f0f8fa, #d4e3ea);
     min-height: 100vh;
     padding: 1rem;
     box-sizing: border-box;
@@ -11,6 +12,26 @@ body {
 }
 
 main {
+    width: 1000px;
     display: flex;
     align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.wrapperSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wrapperTicket {
+    display: flex;
+    align-items: center;
+}
+
+.wrapperInfoAirlines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
