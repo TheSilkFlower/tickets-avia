@@ -7,6 +7,6 @@ interface DepartureTimeProps {
 
 export const DepartureTime: React.FC<DepartureTimeProps> = ({ time }) => {
     return (
-        <div>{time}</div>
+        <div className={ styles.departureTime }>{time}</div>
     )
 }
