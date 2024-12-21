@@ -6,3 +6,5 @@ export const ticketsCollection: Tickets = []
 for(let ticket of info['tickets']) {
     ticketsCollection.push(ticket)
 }
+
+console.log(ticketsCollection)

@@ -1,5 +1,6 @@
 import styles from './index.module.scss';
 import React, { ReactNode } from 'react';
+import Paper from '@mui/material/Paper';
 
 interface Ticket {
     origin: string;
@@ -17,14 +18,14 @@ interface Ticket {
 
 export type Tickets = Ticket[]
 
-interface TicketProps {
+interface TicketChildrenProps {
     children: ReactNode
 }
 
-export const Ticket: React.FC<TicketProps> = ({ children }) => {
+export const Ticket: React.FC<TicketChildrenProps> = ({ children }) => {
     return (
-                <div className={ styles.wrapperTicket }>
-                   {children} 
-                </div>
+            <Paper sx={{ padding: '16px' }}>
+                {children}
+            </Paper> 
     )
 }
