@@ -1,9 +1,6 @@
 import styles from './index.module.scss';
-import React, { useCallback } from 'react';
+import React, { ReactNode } from 'react';
 import Paper from '@mui/material/Paper';
-import { InfoAirlines } from '../InfoAirlines';
-import { InfoFlight } from '../InfoFlight';
-import info from '../../tickets.json';
 
 interface Ticket {
     origin: string;
@@ -19,42 +16,16 @@ interface Ticket {
     price: number;
 }
 
-type Tickets = Ticket[]
-const ticketsCollection: Tickets = []
+export type Tickets = Ticket[]
 
-for(let ticket of info['tickets']) {
-    ticketsCollection.push(ticket)
+interface TicketChildrenProps {
+    children: ReactNode
 }
 
-console.log(ticketsCollection)
-
-export const Ticket: React.FC = () => {
-    const getImage = useCallback((carrier: string) => {
-        let src =''
-        switch(carrier) {
-            case 'SU':
-                src = '/rus.png';
-                break;
-            case 'TK':
-                src = '/turkish.jpg';
-                break;
-            case 'S7':
-                src = '/s7.png';
-                break;
-            case 'BA':
-                src = '/british.png';
-                break;
-        }
-        return src
-    }, [])
+export const Ticket: React.FC<TicketChildrenProps> = ({ children }) => {
     return (
-        <Paper sx={{ padding: '16px' }}>
-            {ticketsCollection.map(ticket => (
-                <div key={ticket.price}>
-                    <InfoAirlines price={ticket.price} img={getImage(ticket.carrier)}/>
-                    <InfoFlight />
-                </div>
-            ))}    
-        </Paper> 
+            <Paper sx={{ padding: '16px' }}>
+                {children}
+            </Paper> 
     )
 }
