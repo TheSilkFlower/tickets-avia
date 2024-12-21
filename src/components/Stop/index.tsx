@@ -1,13 +1,13 @@
 import React from "react";
 import styles from './index.module.scss'
 
-interface StopsProps {
+interface StopProps {
     stop: string
 }
 
-export const Stops: React.FC<StopsProps> = ({ stop }) => {
+export const Stop: React.FC<StopProps> = ({ stop }) => {
     return (
-        <div>
+        <div className={ styles.stop }>
             {stop}
         </div>
     )

@@ -7,6 +7,8 @@ interface DestinationTimeProps {
 
 export const DestinationTime: React.FC<DestinationTimeProps> = ({ time }) => {
     return (
-        <div>{time}</div>
+        <div className={ styles.destinationTime }>
+            {time}
+        </div>
     )
 }
