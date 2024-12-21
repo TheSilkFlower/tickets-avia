@@ -7,6 +7,6 @@ interface DepartureDateProps {
 
 export const DepartureDate: React.FC<DepartureDateProps> = ({ date }) => {
     return (
-        <div>{date}</div>
+        <div className={ styles.date }>{date}</div>
     )
 }
