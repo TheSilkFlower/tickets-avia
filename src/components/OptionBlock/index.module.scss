@@ -1,9 +1,6 @@
-.wrapper {
-    width: 240px;
-}
-
 .transfersBlock {
     width: 100%;
+    max-width: 240px;
     display: flex;
     flex-direction: column;
     padding: 10px 25px;
