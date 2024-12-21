@@ -4,6 +4,7 @@ import { ticketsCollection } from '../components/TicketsCollection';
 import { OptionBlock } from "../components/OptionBlock";
 import { Ticket } from "../components/Ticket";
 import { TicketCost } from "../components/TicketCost";
+import { InfoAirlines } from "../components/InfoAirlines";
 import { InfoFlight } from "../components/InfoFlight";
 import { TicketCarrier } from "../components/TicketCarrier";
 import { DepartureFrom } from "../components/DepartureFrom";
@@ -12,7 +13,8 @@ import { DepartureTime } from "../components/DepartureTime";
 import { DepartureDate } from "../components/DepartureDate";
 import { DestinationTime } from "../components/DestinationTime";
 import { DestinationDate } from "../components/DestinationDate";
-import { Stops } from "../components/Stops";
+import { Stop } from "../components/Stop";
+import { convertDate } from "../helpers";
 
 export const App: React.FC = () => {
     //получаем изображение авиакомпании
@@ -61,26 +63,28 @@ export const App: React.FC = () => {
             <section className={ styles.wrapperSection }>
                 { ticketsCollection.map(ticket => {
                     return <Ticket key={ticket.price}>
-                                <div key={ticket.price} className={ styles.wrapperTicket }>
-                                    <div className={ styles.wrapperInfoAirlines }>
-                                       <TicketCarrier src={getImage(ticket.carrier)}/>
-                                       <TicketCost cost={ticket.price}/> 
+                                <InfoAirlines>
+                                    <div key={ticket.price} className={ styles.wrapperTicketAirlines }>
+                                        <div className={ styles.wrapperInfoAirlines }>
+                                           <TicketCarrier src={getImage(ticket.carrier)}/>
+                                           <TicketCost cost={ticket.price}/> 
+                                        </div>
                                     </div>
-                                    <InfoFlight>
-                                        <div className={ styles.wrapperDepartureFrom }>
-                                            <DepartureTime time={ticket.departure_time}/>
-                                            <DepartureFrom airportCode={ticket.origin} city={ticket.origin_name}/>
-                                            <DepartureDate date={ticket.departure_date}/>
-                                        </div>
-                                        <Stops stop={getStops(ticket.stops)}/>
-                                        <div className={ styles.wrapperDestinationTo }>
-                                            <DestinationTime time={ticket.arrival_time}/>
-                                            <DestinationTo airportCode={ticket.destination} city={ticket.destination_name}/>
-                                            <DestinationDate date={ticket.arrival_date}/>
-                                        </div>
-                                    </InfoFlight>
-                                </div>
-                            </Ticket>
+                                </InfoAirlines>
+                                <InfoFlight>
+                                    <div className={ styles.wrapperDepartureFrom }>
+                                        <DepartureTime time={ticket.departure_time}/>
+                                        <DepartureFrom airportCode={ticket.origin} city={ticket.origin_name}/>
+                                        <DepartureDate date={convertDate(ticket.departure_date)}/>
+                                    </div>
+                                    <Stop stop={getStops(ticket.stops)}/>
+                                    <div className={ styles.wrapperDestinationTo }>
+                                        <DestinationTime time={ticket.arrival_time}/>
+                                        <DestinationTo airportCode={ticket.destination} city={ticket.destination_name}/>
+                                        <DestinationDate date={convertDate(ticket.arrival_date)}/>
+                                    </div>
+                                </InfoFlight>
+                           </Ticket> 
                 })}
             </section>
         </main>
