@@ -1,7 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-export const InfoFlight: React.FC = () => {
+interface InfoFlightProps {
+    children: ReactNode
+}
+
+export const InfoFlight: React.FC<InfoFlightProps> = ({ children }) => {
     return (
-        <div></div>
+        <div>
+            {children}
+        </div>
     )
 }
