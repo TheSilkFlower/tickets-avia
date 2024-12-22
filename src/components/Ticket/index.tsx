@@ -1,7 +1,7 @@
 import styles from './index.module.scss';
 import React, { ReactNode } from 'react';
 
-interface Ticket {
+export interface Ticket {
     origin: string;
     origin_name: string;
     destination: string;
