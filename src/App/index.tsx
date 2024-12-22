@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import styles from './index.module.scss';
 import { ticketsCollection } from '../components/TicketsCollection';
 import { OptionBlock } from "../components/OptionBlock";
@@ -57,11 +57,17 @@ export const App: React.FC = () => {
         return stop
     }, [])
 
+    // создаём копию массива ticketsCollection и сортируем по стоимости
+    const sortedTickets = useMemo(() => {
+        const newTicketsCollection = [...ticketsCollection].sort((a: Ticket, b: Ticket) => a.price - b.price)
+        return newTicketsCollection
+    }, []) 
+    
     return (
         <main>
             <OptionBlock /> 
             <section className={ styles.wrapperSection }>
-                { ticketsCollection.map(ticket => {
+            { sortedTickets.map(ticket => {
                     return <Ticket key={ticket.price}>
                                 <InfoAirlines>
                                     <div key={ticket.price} className={ styles.wrapperTicketAirlines }>
@@ -84,7 +90,7 @@ export const App: React.FC = () => {
                                         <DestinationDate date={convertDate(ticket.arrival_date)}/>
                                     </div>
                                 </InfoFlight>
-                           </Ticket> 
+                           </Ticket>
                 })}
             </section>
         </main>
