@@ -67,31 +67,31 @@ export const App: React.FC = () => {
         <main>
             <OptionBlock /> 
             <section className={ styles.wrapperSection }>
-            { sortedTickets.map(ticket => {
-                    return <Ticket key={ticket.price}>
-                                <InfoAirlines>
-                                    <div key={ticket.price} className={ styles.wrapperTicketAirlines }>
-                                        <div className={ styles.wrapperInfoAirlines }>
-                                           <TicketCarrier src={getImage(ticket.carrier)}/>
-                                           <TicketCost cost={ticket.price}/> 
-                                        </div>
+            {sortedTickets.map(ticket => {
+                return <Ticket key={ticket.price}>
+                            <InfoAirlines>
+                                <div key={ticket.price} className={ styles.wrapperTicketAirlines }>
+                                    <div className={ styles.wrapperInfoAirlines }>
+                                       <TicketCarrier src={getImage(ticket.carrier)}/>
+                                       <TicketCost cost={ticket.price}/> 
                                     </div>
-                                </InfoAirlines>
-                                <InfoFlight>
-                                    <div className={ styles.wrapperDepartureFrom }>
-                                        <DepartureTime time={ticket.departure_time}/>
-                                        <DepartureFrom airportCode={ticket.origin} city={ticket.origin_name}/>
-                                        <DepartureDate date={convertDate(ticket.departure_date)}/>
-                                    </div>
-                                    <Stop stop={getStops(ticket.stops)}/>
-                                    <div className={ styles.wrapperDestinationTo }>
-                                        <DestinationTime time={ticket.arrival_time}/>
-                                        <DestinationTo airportCode={ticket.destination} city={ticket.destination_name}/>
-                                        <DestinationDate date={convertDate(ticket.arrival_date)}/>
-                                    </div>
-                                </InfoFlight>
-                           </Ticket>
-                })}
+                                </div>
+                            </InfoAirlines>
+                            <InfoFlight>
+                                <div className={ styles.wrapperDepartureFrom }>
+                                    <DepartureTime time={ticket.departure_time}/>
+                                    <DepartureFrom airportCode={ticket.origin} city={ticket.origin_name}/>
+                                    <DepartureDate date={convertDate(ticket.departure_date)}/>
+                                </div>
+                                <Stop stop={getStops(ticket.stops)}/>
+                                <div className={ styles.wrapperDestinationTo }>
+                                    <DestinationTime time={ticket.arrival_time}/>
+                                    <DestinationTo airportCode={ticket.destination} city={ticket.destination_name}/>
+                                    <DestinationDate date={convertDate(ticket.arrival_date)}/>
+                                </div>
+                            </InfoFlight>
+                       </Ticket>
+                    })}
             </section>
         </main>
     )
