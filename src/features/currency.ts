@@ -1,10 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface CurrencyState {
+    value: 'RUB' | 'USD' | 'EUR'
+}
+
+const initialState: CurrencyState = {
+    value: 'RUB'
+}
+
 export const currencySlice = createSlice({
     name: 'currency',
-    initialState: {
-        value: 'RUB'
-    },
+    initialState,
     reducers: {
         convertToRub: (state) => {
             state.value = 'RUB'
