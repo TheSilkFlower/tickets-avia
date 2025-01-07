@@ -2,6 +2,8 @@ import styles from './index.module.scss';
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../stores/store';
 
 const CustomButton = styled(Button)(() => ({
             backgroundColor: '#fafcff',
@@ -28,13 +30,11 @@ interface Currency {
 
 export const CurrencyGroup: React.FC<Currency> = () => {
     const [selectedCurrency, setSelectedCurrency] = useState('RUB')
+    const currency: string = useSelector((state: RootState) => state.currency.value)
 
     function handleSelect(curr: string) {
         setSelectedCurrency(curr)
-        // onSelected(curr)
     }
-
-    console.log(selectedCurrency)
     
     return (
         <div className={ styles.wrapperButtons }>
