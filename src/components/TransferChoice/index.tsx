@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Checkbox, FormControlLabel, FormGroup, Paper } from '@mui/material';
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 
 export const CheckboxGroup: React.FC = () => {
   const [checked, setChecked] = useState({
