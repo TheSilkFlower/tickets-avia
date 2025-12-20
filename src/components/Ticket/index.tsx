@@ -12,7 +12,9 @@ export interface Ticket {
     arrival_time: string;
     carrier: string;
     stops: number;
-    price: number;
+    priceRub: number;
+    priceEur: number;
+    priceUsd: number;
 }
 
 export type Tickets = Ticket[]
