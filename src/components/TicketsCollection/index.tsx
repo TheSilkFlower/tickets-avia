@@ -3,6 +3,6 @@ import { Tickets } from '../Ticket';
 
 export const ticketsCollection: Tickets = []
 
-for(let ticket of info['tickets']) {
+for(const ticket of info['tickets']) {
     ticketsCollection.push(ticket)
 }
