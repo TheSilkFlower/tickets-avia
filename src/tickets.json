@@ -10,7 +10,9 @@
       "arrival_time": "22:10",
       "carrier": "TK",
       "stops": 3,
-      "price": 12400
+      "priceRub": 12400,
+      "priceEur": 170,
+      "priceUsd": 158
     }, {
       "origin": "VVO",
       "origin_name": "Владивосток",
@@ -22,7 +24,9 @@
       "arrival_time": "23:50",
       "carrier": "S7",
       "stops": 1,
-      "price": 13100
+      "priceRub": 13100,
+      "priceEur": 174,
+      "priceUsd": 166
     }, {
       "origin": "VVO",
       "origin_name": "Владивосток",
@@ -34,7 +38,9 @@
       "arrival_time": "18:10",
       "carrier": "SU",
       "stops": 0,
-      "price": 15300
+      "priceRub": 15300,
+      "priceEur": 183,
+      "priceUsd": 171
     }, {
       "origin": "VVO",
       "origin_name": "Владивосток",
@@ -46,7 +52,9 @@
       "arrival_time": "23:30",
       "carrier": "TK",
       "stops": 2,
-      "price": 11000
+      "priceRub": 11000,
+      "priceEur": 156,
+      "priceUsd": 147
     }, {
       "origin": "VVO",
       "origin_name": "Владивосток",
@@ -58,7 +66,9 @@
       "arrival_time": "20:15",
       "carrier": "BA",
       "stops": 3,
-      "price": 13400
+      "priceRub": 13400,
+      "priceEur": 175,
+      "priceUsd": 163
     }, {
       "origin": "VVO",
       "origin_name": "Владивосток",
@@ -70,7 +80,9 @@
       "arrival_time": "19:25",
       "carrier": "SU",
       "stops": 3,
-      "price": 12450
+      "priceRub": 12450,
+      "priceEur": 162,
+      "priceUsd": 152
     }, {
       "origin": "VVO",
       "origin_name": "Владивосток",
@@ -82,7 +94,9 @@
       "arrival_time": "23:45",
       "carrier": "TK",
       "stops": 1,
-      "price": 13600
+      "priceRub": 13600,
+      "priceEur": 177,
+      "priceUsd": 165
     }, 
     {
       "origin": "VVO",
@@ -95,7 +109,9 @@
       "arrival_time": "17:45",
       "carrier": "TK",
       "stops": 1,
-      "price": 33400
+      "priceRub": 33400,
+      "priceEur": 232,
+      "priceUsd": 212
     },
     {
       "origin": "VVO",
@@ -108,7 +124,9 @@
       "arrival_time": "15:25",
       "carrier": "TK",
       "stops": 0,
-      "price": 14250
+      "priceRub": 14250,
+      "priceEur": 162,
+      "priceUsd": 152
     }, 
     {
       "origin": "LRN",
@@ -121,7 +139,9 @@
       "arrival_time": "14:30",
       "carrier": "SU",
       "stops": 1,
-      "price": 7000
+      "priceRub": 7000,
+      "priceEur": 110,
+      "priceUsd": 102
     },
     {
       "origin": "VVO",
@@ -134,7 +154,9 @@
       "arrival_time": "23:35",
       "carrier": "SU",
       "stops": 1,
-      "price": 16700
+      "priceRub": 16700,
+      "priceEur": 186,
+      "priceUsd": 174
     }, 
     {
       "origin": "VVO",
@@ -147,6 +169,8 @@
       "arrival_time": "16:15",
       "carrier": "S7",
       "stops": 0,
-      "price": 17400
+      "priceRub": 17400,
+      "priceEur": 198,
+      "priceUsd": 178
     }]
   }
