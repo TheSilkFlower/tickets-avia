@@ -1,28 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface CurrencyState {
-    value: 'RUB' | 'USD' | 'EUR'
+type CurrencyCode = 'RUB' | 'USD' | 'EUR';
+
+type CurrencyState = {
+    curr: CurrencyCode
 }
 
 const initialState: CurrencyState = {
-    value: 'RUB'
+    curr: 'RUB'
 }
 
 export const currencySlice = createSlice({
     name: 'currency',
     initialState,
     reducers: {
-        convertToRub: (state) => {
-            state.value = 'RUB'
-        },
-        convertToUsd: (state) => {
-            state.value = 'USD'
-        },
-        convertToEur: (state) => {
-            state.value = 'EUR'
-        },
+        changeCurrency: (state, action: PayloadAction<CurrencyCode>) => {
+            state.curr = action.payload;
+        }
     },
 })
 
-export const { convertToRub, convertToUsd, convertToEur } = currencySlice.actions
+export const { changeCurrency } = currencySlice.actions
 export default currencySlice.reducer
