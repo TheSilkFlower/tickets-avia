@@ -25,8 +25,8 @@ interface TicketProps {
 
 export const Ticket: React.FC<TicketProps> = ({ children }) => {
     return (
-                <div className={ styles.wrapperTicket }>
-                   {children} 
-                </div>
+            <div className={ styles.wrapperTicket }>
+               {children} 
+            </div>
     )
 }
