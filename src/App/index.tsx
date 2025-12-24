@@ -15,6 +15,7 @@ import { DestinationTime } from "../components/DestinationTime";
 import { DestinationDate } from "../components/DestinationDate";
 import { Stop } from "../components/Stop";
 import { convertDate } from "../helpers";
+import { useAppSelector } from "../hooks/state";
 
 export const App: React.FC = () => {
     //получаем изображение авиакомпании
@@ -59,21 +60,40 @@ export const App: React.FC = () => {
 
     // создаём копию массива ticketsCollection и сортируем по стоимости
     const sortedTickets = useMemo(() => {
-        const newTicketsCollection = [...ticketsCollection].sort((a: Ticket, b: Ticket) => a.price - b.price)
+        const newTicketsCollection = [...ticketsCollection].sort((a: Ticket, b: Ticket) => a.priceRub - b.priceRub)
         return newTicketsCollection
     }, []) 
+
+    // подписываемся на изменение curr из store
+    const activeCurr = useAppSelector(state => state.currency.curr);
     
     return (
         <main>
             <OptionBlock /> 
             <section className={ styles.wrapperSection }>
             {sortedTickets.map(ticket => {
-                return <Ticket key={ticket.price}>
+                
+                // определяем валюту
+                let actualCost;
+                switch(activeCurr) {
+                    case 'RUB':
+                        actualCost = ticket.priceRub;
+                        break;
+                    case 'EUR':
+                        actualCost = ticket.priceEur;
+                        break;
+                    case 'USD':
+                        actualCost = ticket.priceUsd;
+                        break;
+                    default: actualCost = ticket.priceRub;
+                }
+
+                return <Ticket key={ticket.priceRub}>
                             <InfoAirlines>
-                                <div key={ticket.price} className={ styles.wrapperTicketAirlines }>
+                                <div key={ticket.priceRub} className={ styles.wrapperTicketAirlines }>
                                     <div className={ styles.wrapperInfoAirlines }>
                                        <TicketCarrier src={getImage(ticket.carrier)}/>
-                                       <TicketCost cost={ticket.price}/> 
+                                       <TicketCost cost={actualCost}/> 
                                     </div>
                                 </div>
                             </InfoAirlines>
