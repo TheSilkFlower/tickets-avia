@@ -2,8 +2,8 @@ import styles from './index.module.scss';
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../stores/store';
+import { useAppDispatch } from '../../hooks/state';
+import { changeCurrency } from '../../features/currency';
 
 const CustomButton = styled(Button)(() => ({
             backgroundColor: '#fafcff',
@@ -29,29 +29,38 @@ interface Currency {
 }
 
 export const CurrencyGroup: React.FC<Currency> = () => {
-    const [selectedCurrency, setSelectedCurrency] = useState('RUB')
-    const currency: string = useSelector((state: RootState) => state.currency.value)
+    const [selectedCurrency, setSelectedCurrency] = useState('RUB');
+    const dispatch = useAppDispatch();
 
     function handleSelect(curr: string) {
-        setSelectedCurrency(curr)
+        setSelectedCurrency(curr);
     }
     
     return (
         <div className={ styles.wrapperButtons }>
             <CustomButton 
-                onClick={() => handleSelect('RUB')}
+                onClick={() => {
+                    dispatch(changeCurrency('RUB'));
+                    handleSelect('RUB');
+                }}
                 onSelect={() => selectedCurrency === 'RUB'}
                 className={selectedCurrency === 'RUB' ? 'active' : '' }
                 sx={{ borderTopRightRadius: '0px', borderBottomRightRadius: '0px'}}
             >RUB</CustomButton>
             <CustomButton 
-                onClick={() => handleSelect('USD')}
+                onClick={() => {
+                    dispatch(changeCurrency('USD'));
+                    handleSelect('USD');
+                }}
                 onSelect={() => selectedCurrency === 'USD'}
                 className={selectedCurrency === 'USD' ? 'active' : '' }
                 sx={{ borderLeft: '0px', borderRight: '0px', borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomRightRadius: '0px' }}
             >USD</CustomButton>
             <CustomButton 
-                onClick={() => handleSelect('EUR')}
+                onClick={() => {
+                    dispatch(changeCurrency('EUR'));
+                    handleSelect('EUR');
+                }}
                 onSelect={() => selectedCurrency === 'EUR'}
                 className={selectedCurrency === 'EUR' ? 'active' : '' }
                 sx={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px' }}
